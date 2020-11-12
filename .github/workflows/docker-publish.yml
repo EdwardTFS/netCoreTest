@@ -15,12 +15,13 @@ on:
 
 env:
   # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
+  IMAGE_NAME: app
 
 jobs:
   # Run tests.
   # See also https://docs.docker.com/docker-hub/builds/automated-testing/
   test:
+    if: "false"
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +40,7 @@ jobs:
   # See also https://docs.docker.com/docker-hub/builds/
   push:
     # Ensure test job passes before pushing image.
-    needs: test
+    # needs: test
 
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
